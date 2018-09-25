@@ -3,7 +3,15 @@ import logo from './react.svg';
 
 import './Home.css';
 
-class Home extends React.Component<{}, {}> {
+interface State {
+  counter: number;
+}
+
+class Home extends React.Component<{}, State> {
+  public state: State = {
+    counter: 0
+  };
+
   public render() {
     return (
       <div className="Home">
@@ -15,6 +23,14 @@ class Home extends React.Component<{}, {}> {
           To get started, edit <code>src/App.tsx</code> or{' '}
           <code>src/Home.tsx</code> and save to reload.
         </p>
+        <span>Counter: {this.state.counter}</span>
+        <button
+          onClick={() => {
+            this.setState({ counter: this.state.counter + 1 });
+          }}
+        >
+          Increase counter
+        </button>
         <ul className="Home-resources">
           <li>
             <a href="https://github.com/jaredpalmer/razzle">Docs</a>

@@ -9,6 +9,7 @@ switch (script) {
   case 'build':
   case 'start':
   case 'test': {
+    console.log('HEY!!!!')
     const result = spawn.sync(
       'node',
       [require.resolve('../scripts/' + script)].concat(args),
